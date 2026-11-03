@@ -22,9 +22,9 @@ const Logo = ({ size = 'md', to = '/', showText = true }) => {
 
   const content = (
     <div className="flex items-center gap-2.5 group select-none">
-      {/* Brand Icon (Always vibrant & visible in both Light and Dark modes) */}
+      {/* Brand Icon (Ultra-high contrast, visible in Light & Dark modes) */}
       <div
-        className={`${iconBoxSizes[size] || iconBoxSizes.md} bg-[#801E35] flex items-center justify-center shadow-md shadow-[#801E35]/30 group-hover:scale-105 transition-transform shrink-0 border border-[#FAF7F2]/20`}
+        className={`${iconBoxSizes[size] || iconBoxSizes.md} bg-gradient-to-br from-[#9E223E] to-[#681327] flex items-center justify-center shadow-md shadow-[#801E35]/30 group-hover:scale-105 transition-transform shrink-0 border border-white/20`}
       >
         <svg
           viewBox="0 0 32 32"
@@ -34,39 +34,34 @@ const Logo = ({ size = 'md', to = '/', showText = true }) => {
         >
           {/* Card peeking out */}
           <rect
-            x="6"
-            y="5"
-            width="20"
-            height="11"
-            rx="2.5"
-            fill="#F5D7DE"
-            stroke="#FFFDF9"
-            strokeWidth="1.2"
+            x="8"
+            y="6"
+            width="16"
+            height="8"
+            rx="2"
+            fill="#FAECF0"
           />
-          {/* Card chip */}
-          <rect x="9" y="8" width="5" height="4" rx="1" fill="#801E35" opacity="0.9" />
+          <rect x="11" y="8" width="4" height="2" rx="0.5" fill="#801E35" opacity="0.8" />
 
-          {/* Wallet main body */}
+          {/* Main Wallet Body - Crisp high-contrast White/Cream */}
           <rect
-            x="3"
+            x="5"
             y="10"
-            width="26"
-            height="17"
-            rx="4"
-            fill="#681327"
-            stroke="#FFFDF9"
-            strokeWidth="1.4"
+            width="22"
+            height="16"
+            rx="3.5"
+            fill="#FFFDF9"
           />
 
-          {/* Wallet flap / pocket */}
+          {/* Wallet flap / interior pocket */}
           <path
-            d="M3 15C3 13.3431 4.34315 12 6 12H26C27.6569 12 29 13.3431 29 15V23C29 25.2091 27.2091 27 25 27H7C4.79086 27 3 25.2091 3 23V15Z"
-            fill="#801E35"
+            d="M5 14C5 12.3431 6.34315 11 8 11H24C25.6569 11 27 12.3431 27 14V22.5C27 24.433 25.433 26 23.5 26H8.5C6.567 26 5 24.433 5 22.5V14Z"
+            fill="#F6E7EB"
           />
 
-          {/* Golden / Cream Clasp */}
-          <circle cx="23.5" cy="19.5" r="2.8" fill="#FFFDF9" />
-          <circle cx="23.5" cy="19.5" r="1.6" fill="#D27F8F" />
+          {/* Wallet Clasp in Burgundy */}
+          <rect x="18" y="15" width="9" height="7.5" rx="2" fill="#801E35" />
+          <circle cx="22" cy="18.75" r="1.4" fill="#FFFDF9" />
         </svg>
       </div>
 
