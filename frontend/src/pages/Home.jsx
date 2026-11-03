@@ -230,13 +230,15 @@ const Home = () => {
           <div className="flex items-center gap-2 md:hidden">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl border border-[#DCCEBD] dark:border-[#520B1C] text-[#2D0B14] dark:text-[#FAF7F2]"
+              className="p-2 rounded-xl border border-[#DCCEBD] dark:border-[#520B1C] bg-[#FAF7F2] dark:bg-[#260810] text-[#2D0B14] dark:text-[#FAF7F2] shadow-sm active:scale-95 transition-transform"
+              title="Toggle theme"
             >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#F5D7DE]" /> : <Moon className="w-4 h-4" />}
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-[#F5D7DE]" /> : <Moon className="w-4 h-4 text-[#801E35]" />}
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl border border-[#DCCEBD] dark:border-[#520B1C] text-[#2D0B14] dark:text-[#FAF7F2]"
+              className="p-2 rounded-xl border border-[#DCCEBD] dark:border-[#520B1C] bg-[#FAF7F2] dark:bg-[#260810] text-[#2D0B14] dark:text-[#FAF7F2] shadow-sm active:scale-95 transition-transform"
+              title="Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -717,10 +719,10 @@ const Home = () => {
 
       {/* 7. Comprehensive Mega Footer */}
       <footer className="border-t-2 border-[#EAE0D3] dark:border-[#3F0E1B] bg-white dark:bg-[#140306] text-[#4A3528] dark:text-[#D4C5B5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7 pb-3 sm:pt-8 sm:pb-3">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 sm:pt-10 sm:pb-5">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
             {/* Brand Column */}
-            <div className="lg:col-span-2 space-y-2.5 text-left">
+            <div className="lg:col-span-2 space-y-3.5 text-left">
               <Logo size="md" />
 
               <p className="text-xs text-[#614D3C] dark:text-[#B59D85] max-w-sm leading-relaxed font-medium">
@@ -729,24 +731,24 @@ const Home = () => {
 
               {/* Newsletter subscribe */}
               <div className="pt-1 max-w-sm">
-                <p className="text-[11px] font-black text-[#24050D] dark:text-[#FFFDF9] uppercase tracking-wider mb-1.5">
+                <p className="text-[11px] font-black text-[#24050D] dark:text-[#FFFDF9] uppercase tracking-wider mb-2">
                   Weekly Wealth & Savings Tips
                 </p>
                 {newsletterDone ? (
                   <p className="text-xs font-bold text-emerald-600">✓ Subscribed successfully!</p>
                 ) : (
-                  <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+                  <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
                     <input
                       type="email"
                       required
                       placeholder="Enter your email"
                       value={newsletterEmail}
                       onChange={(e) => setNewsletterEmail(e.target.value)}
-                      className="flex-1 px-3.5 py-2 rounded-xl bg-[#FAF7F2] dark:bg-[#160408] border border-[#DCCEBD] dark:border-[#520B1C] text-xs font-semibold text-[#24050D] dark:text-[#FFFDF9] focus:outline-none focus:ring-2 focus:ring-[#801E35]"
+                      className="flex-1 min-w-0 px-3.5 py-2.5 rounded-xl bg-[#FAF7F2] dark:bg-[#160408] border border-[#DCCEBD] dark:border-[#520B1C] text-xs font-semibold text-[#24050D] dark:text-[#FFFDF9] focus:outline-none focus:ring-2 focus:ring-[#801E35]"
                     />
                     <button
                       type="submit"
-                      className="btn-burgundy px-4 py-2 rounded-xl text-xs"
+                      className="btn-burgundy px-4 py-2.5 rounded-xl text-xs shrink-0 active:scale-95 transition-transform"
                     >
                       Subscribe
                     </button>
@@ -755,57 +757,60 @@ const Home = () => {
               </div>
 
               <div className="flex items-center gap-2 pt-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0"></span>
                 <span>System 100% Operational • 256-Bit SSL Encrypted</span>
               </div>
             </div>
 
-            {/* Product Links */}
-            <div className="space-y-2 text-left">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
-                Product
-              </h4>
-              <ul className="space-y-1.5 text-xs font-bold">
-                <li><Link to="/dashboard" className="hover:text-[#801E35] transition-colors">Dashboard</Link></li>
-                <li><Link to="/transactions" className="hover:text-[#801E35] transition-colors">Transactions</Link></li>
-                <li><Link to="/budgets" className="hover:text-[#801E35] transition-colors">Budgets</Link></li>
-                <li><Link to="/categories" className="hover:text-[#801E35] transition-colors">Categories</Link></li>
-                <li><Link to="/reports" className="hover:text-[#801E35] transition-colors">Reports & Analytics</Link></li>
-                <li><Link to="/goals" className="hover:text-[#801E35] transition-colors">Savings Goals</Link></li>
-              </ul>
-            </div>
+            {/* Links Columns: 2 cols on mobile, 3 cols on sm/tablet, 3 cols on desktop */}
+            <div className="lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
+              {/* Product Links */}
+              <div className="space-y-2.5 text-left">
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
+                  Product
+                </h4>
+                <ul className="space-y-2 text-xs font-bold">
+                  <li><Link to="/dashboard" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Dashboard</Link></li>
+                  <li><Link to="/transactions" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Transactions</Link></li>
+                  <li><Link to="/budgets" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Budgets</Link></li>
+                  <li><Link to="/categories" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Categories</Link></li>
+                  <li><Link to="/reports" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Reports & Analytics</Link></li>
+                  <li><Link to="/goals" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Savings Goals</Link></li>
+                </ul>
+              </div>
 
-            {/* Company Links */}
-            <div className="space-y-2 text-left">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
-                Company
-              </h4>
-              <ul className="space-y-1.5 text-xs font-bold">
-                <li><a href="#about" className="hover:text-[#801E35] transition-colors">About Us</a></li>
-                <li><a href="#pricing" className="hover:text-[#801E35] transition-colors">Pricing Plans</a></li>
-                <li><a href="#features" className="hover:text-[#801E35] transition-colors">Why ExpenseManager</a></li>
-                <li><a href="#contact" className="hover:text-[#801E35] transition-colors">Contact Support</a></li>
-                <li><Link to="/register" className="text-[#801E35] dark:text-[#E09CA9] hover:underline">Sign Up Free</Link></li>
-              </ul>
-            </div>
+              {/* Company Links */}
+              <div className="space-y-2.5 text-left">
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
+                  Company
+                </h4>
+                <ul className="space-y-2 text-xs font-bold">
+                  <li><a href="#about" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">About Us</a></li>
+                  <li><a href="#pricing" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Pricing Plans</a></li>
+                  <li><a href="#features" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Why ExpenseManager</a></li>
+                  <li><a href="#contact" className="hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Contact Support</a></li>
+                  <li><Link to="/register" className="text-[#801E35] dark:text-[#E09CA9] hover:underline font-extrabold">Sign Up Free</Link></li>
+                </ul>
+              </div>
 
-            {/* Legal & Security Links */}
-            <div className="space-y-2 text-left">
-              <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
-                Security & Legal
-              </h4>
-              <ul className="space-y-1.5 text-xs font-bold">
-                <li><span className="cursor-pointer hover:text-[#801E35] transition-colors">Privacy Policy</span></li>
-                <li><span className="cursor-pointer hover:text-[#801E35] transition-colors">Terms of Service</span></li>
-                <li><span className="cursor-pointer hover:text-[#801E35] transition-colors">IDOR Protection</span></li>
-                <li><span className="cursor-pointer hover:text-[#801E35] transition-colors">Cookie Preferences</span></li>
-                <li><span className="cursor-pointer hover:text-[#801E35] transition-colors">Security Audit</span></li>
-              </ul>
+              {/* Legal & Security Links */}
+              <div className="col-span-2 sm:col-span-1 space-y-2.5 text-left pt-2 sm:pt-0">
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#24050D] dark:text-[#FFFDF9]">
+                  Security & Legal
+                </h4>
+                <ul className="space-y-2 text-xs font-bold">
+                  <li><span className="cursor-pointer hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Privacy Policy</span></li>
+                  <li><span className="cursor-pointer hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Terms of Service</span></li>
+                  <li><span className="cursor-pointer hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">IDOR Protection</span></li>
+                  <li><span className="cursor-pointer hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Cookie Preferences</span></li>
+                  <li><span className="cursor-pointer hover:text-[#801E35] dark:hover:text-[#FFFDF9] transition-colors">Security Audit</span></li>
+                </ul>
+              </div>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="mt-4 pt-3 border-t border-[#EAE0D3] dark:border-[#3F0E1B] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-bold text-[#614D3C] dark:text-[#B59D85]">
+          <div className="mt-8 pt-4 border-t border-[#EAE0D3] dark:border-[#3F0E1B] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs font-bold text-[#614D3C] dark:text-[#B59D85]">
             <div>
               © 2026 ExpenseManager. All rights reserved.
             </div>

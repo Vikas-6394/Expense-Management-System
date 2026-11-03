@@ -1,12 +1,19 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext(null);
+const THEME_KEY = 'expense_manager_theme_v3';
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('finset_theme');
-    if (saved) return saved;
-    return 'light'; // Default to light mode for everyone
+    try {
+      // Clear legacy storage key so old dark caches on mobile are wiped
+      localStorage.removeItem('finset_theme');
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === 'dark') return 'dark';
+      return 'light'; // Always default to light mode on all devices
+    } catch (e) {
+      return 'light';
+    }
   });
 
   useEffect(() => {
@@ -18,7 +25,9 @@ export const ThemeProvider = ({ children }) => {
       root.classList.remove('dark');
       root.style.colorScheme = 'light';
     }
-    localStorage.setItem('finset_theme', theme);
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {}
   }, [theme]);
 
   const toggleTheme = () => {

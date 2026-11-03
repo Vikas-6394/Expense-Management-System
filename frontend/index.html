@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="theme-color" content="#801E35" />
+    <meta name="color-scheme" content="light" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>ExpenseManager - Manage Your Income & Expenses Smartly</title>
     <meta name="description" content="Track expenses, plan budgets, analyze spending and take control of your finances with our simple and secure system." />
@@ -12,6 +13,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          // Remove legacy finset_theme so stale dark settings on mobile devices are cleared
+          localStorage.removeItem('finset_theme');
+          var saved = localStorage.getItem('expense_manager_theme_v3');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            // Default to Light Mode on all devices
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.style.colorScheme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body class="bg-cream-100 dark:bg-[#1A0408] text-burgundy-900 dark:text-cream-100 antialiased selection:bg-burgundy-600 selection:text-white transition-colors duration-200">
     <div id="root"></div>
