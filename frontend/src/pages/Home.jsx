@@ -627,7 +627,7 @@ const Home = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-sm text-[#24050D] dark:text-[#FFFDF9]">Headquarters</h4>
-                    <p className="text-xs text-[#614D3C] dark:text-[#B59D85]">DLF Cyber City, Gurugram, India</p>
+                    <p className="text-xs text-[#614D3C] dark:text-[#B59D85]">Naka Bypass, Ayodhya 224001</p>
                   </div>
                 </div>
               </div>
