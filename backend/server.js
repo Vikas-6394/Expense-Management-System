@@ -106,8 +106,8 @@ const PORT = process.env.PORT || 5000;
 
 let server;
 
-// Only start the server if not in test mode
-if (process.env.NODE_ENV !== 'test') {
+// Only start the server if not in test mode or serverless environment
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   connectDB().then(async () => {
     // Seed initial demo fixtures
     await seedDemoData();
