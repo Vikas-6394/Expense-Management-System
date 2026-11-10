@@ -6,6 +6,7 @@ const apiLimiter = rateLimit({
   max: 500, // limit each IP to 500 requests per windowMs
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false, trustProxy: false },
   message: {
     success: false,
     message: 'Too many requests from this IP, please try again after 15 minutes.',
@@ -18,6 +19,7 @@ const authLimiter = rateLimit({
   max: 30, // limit each IP to 30 requests per windowMs
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false, trustProxy: false },
   message: {
     success: false,
     message: 'Too many login/registration attempts. Please wait 15 minutes.',

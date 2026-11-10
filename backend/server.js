@@ -28,6 +28,20 @@ const notificationRoutes = require('./routes/notificationRoutes');
 
 const app = express();
 
+// Enable trust proxy for Vercel and reverse proxy environments
+app.set('trust proxy', 1);
+
+// Ensure database connection before processing any API requests
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('[DB Middleware Error]:', err.message);
+    return res.status(500).json({ success: false, message: 'Database connection error. Please try again.' });
+  }
+});
+
 // Security HTTP headers
 app.use(
   helmet({
