@@ -73,26 +73,49 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', apiLimiter);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+const handleHealth = (req, res) => {
   res.status(200).json({
     status: 'ok',
     timestamp: new Date().toISOString(),
     service: 'Expense Management System API',
   });
-});
+};
+app.get('/api/health', handleHealth);
+app.get('/health', handleHealth);
 
-// Mount Routes
+// Mount Routes (supporting both /api/* and root /* so any Vercel routing configuration works seamlessly)
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/transactions', transactionRoutes);
+app.use('/transactions', transactionRoutes);
+
 app.use('/api/categories', categoryRoutes);
+app.use('/categories', categoryRoutes);
+
 app.use('/api/budgets', budgetRoutes);
+app.use('/budgets', budgetRoutes);
+
 app.use('/api/accounts', accountRoutes);
+app.use('/accounts', accountRoutes);
+
 app.use('/api/trips', tripRoutes);
+app.use('/trips', tripRoutes);
+
 app.use('/api/bills', billRoutes);
+app.use('/bills', billRoutes);
+
 app.use('/api/goals', goalRoutes);
+app.use('/goals', goalRoutes);
+
 app.use('/api/debts', debtRoutes);
+app.use('/debts', debtRoutes);
+
 app.use('/api/reports', reportRoutes);
+app.use('/reports', reportRoutes);
+
 app.use('/api/notifications', notificationRoutes);
+app.use('/notifications', notificationRoutes);
 
 // Catch 404
 app.use((req, res, next) => {

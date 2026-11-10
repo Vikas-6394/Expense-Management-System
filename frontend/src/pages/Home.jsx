@@ -102,7 +102,7 @@ const Home = () => {
   const pricingPlans = [
     {
       name: 'Starter',
-      price: '₹ 0',
+      price: '0',
       period: 'free forever',
       badge: 'Getting Started',
       popular: false,
@@ -120,7 +120,7 @@ const Home = () => {
     },
     {
       name: 'Pro Saver',
-      price: '₹ 199',
+      price: '199',
       period: 'per month',
       badge: 'Most Popular',
       popular: true,
@@ -139,7 +139,7 @@ const Home = () => {
     },
     {
       name: 'Family & Enterprise',
-      price: '₹ 499',
+      price: '499',
       period: 'per month',
       badge: 'Maximum Power',
       popular: false,
@@ -282,24 +282,24 @@ const Home = () => {
                 Track expenses, plan budgets, analyze spending and take control of your finances with our simple and secure system.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Link
                   to="/register"
-                  className="btn-burgundy px-8 py-4 rounded-xl font-black text-sm sm:text-base group"
+                  className="btn-burgundy px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-black text-sm sm:text-base group text-center"
                 >
                   <span>Get Started Free</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform inline" />
                 </Link>
 
                 <a
                   href="#features"
-                  className="btn-sand px-8 py-4 rounded-xl font-bold text-sm sm:text-base shadow-sm"
+                  className="btn-sand px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-base shadow-sm text-center"
                 >
                   Learn More
                 </a>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-6 text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">
+              <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>100% Free Forever Plan</span>
@@ -312,10 +312,10 @@ const Home = () => {
             </div>
 
             {/* Right Column: Realistic Live Dashboard Mockup */}
-            <div className="relative">
-              <div className="relative mx-auto max-w-lg rounded-3xl p-5 sm:p-7 bg-[#FFFFFF] dark:bg-[#20050B] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] shadow-2xl">
+            <div className="relative w-full max-w-lg mx-auto">
+              <div className="relative rounded-3xl p-4 sm:p-7 bg-[#FFFFFF] dark:bg-[#20050B] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] shadow-2xl">
                 {/* Mockup Title Bar */}
-                <div className="rounded-2xl bg-[#FAF7F2] dark:bg-[#160408] border border-[#EAE0D3] dark:border-[#3F0E1B] p-5 shadow-sm space-y-4">
+                <div className="rounded-2xl bg-[#FAF7F2] dark:bg-[#160408] border border-[#EAE0D3] dark:border-[#3F0E1B] p-4 sm:p-5 shadow-sm space-y-4">
                   {/* Mockup Title Bar */}
                   <div className="flex items-center pb-3 border-b border-[#EAE0D3] dark:border-[#3F0E1B]">
                     <div className="flex items-center gap-2">
@@ -326,21 +326,21 @@ const Home = () => {
                   </div>
 
                   {/* Stat tiles inside preview */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="p-3.5 rounded-xl bg-[#FFFFFF] dark:bg-[#250810] border border-[#EAE0D3] dark:border-[#3F0E1B] shadow-sm">
+                  <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
+                    <div className="p-3 sm:p-3.5 rounded-xl bg-[#FFFFFF] dark:bg-[#250810] border border-[#EAE0D3] dark:border-[#3F0E1B] shadow-sm">
                       <span className="text-[10px] font-bold text-[#614D3C] dark:text-[#B59D85] uppercase tracking-wider">
                         Income
                       </span>
-                      <div className="text-xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5">
-                        ₹ 50,000
+                      <div className="text-lg sm:text-xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5 flex items-baseline">
+                        <span className="text-sm mr-1 font-bold">₹</span>50,000
                       </div>
                     </div>
-                    <div className="p-3.5 rounded-xl bg-[#FFFFFF] dark:bg-[#250810] border border-[#EAE0D3] dark:border-[#3F0E1B] shadow-sm">
+                    <div className="p-3 sm:p-3.5 rounded-xl bg-[#FFFFFF] dark:bg-[#250810] border border-[#EAE0D3] dark:border-[#3F0E1B] shadow-sm">
                       <span className="text-[10px] font-bold text-[#614D3C] dark:text-[#B59D85] uppercase tracking-wider">
                         Expenses
                       </span>
-                      <div className="text-xl font-black text-[#C25A70] dark:text-[#E09CA9] mt-0.5">
-                        ₹ 32,400
+                      <div className="text-lg sm:text-xl font-black text-[#C25A70] dark:text-[#E09CA9] mt-0.5 flex items-baseline">
+                        <span className="text-sm mr-1 font-bold">₹</span>32,400
                       </div>
                     </div>
                   </div>
@@ -361,8 +361,11 @@ const Home = () => {
 
                   {/* Balance Strip */}
                   <div className="pt-2 flex items-center justify-between text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5] border-t border-[#EAE0D3] dark:border-[#3F0E1B]">
-                    <span>
-                      Balance: <strong className="text-[#24050D] dark:text-[#FFFDF9] font-black">₹ 17,600</strong>
+                    <span className="flex items-baseline">
+                      <span>Balance:&nbsp;</span>
+                      <strong className="text-[#24050D] dark:text-[#FFFDF9] font-black inline-flex items-baseline">
+                        <span className="text-xs mr-0.5 font-bold">₹</span>17,600
+                      </strong>
                     </span>
                     <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-bold">
                       ● Active
@@ -438,9 +441,9 @@ const Home = () => {
             {pricingPlans.map((plan, idx) => (
               <div
                 key={idx}
-                className={`rounded-3xl p-8 flex flex-col justify-between space-y-6 transition-all duration-200 relative ${
+                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 transition-all duration-200 relative ${
                   plan.popular
-                    ? 'bg-[#FFFFFF] dark:bg-[#250810] border-2 border-[#801E35] shadow-xl scale-105 z-10'
+                    ? 'bg-[#FFFFFF] dark:bg-[#250810] border-2 border-[#801E35] shadow-xl md:scale-105 z-10'
                     : 'bg-[#FFFFFF] dark:bg-[#20050B] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] shadow-sm'
                 }`}
               >
@@ -462,9 +465,16 @@ const Home = () => {
 
                   <p className="text-xs text-[#614D3C] dark:text-[#B59D85] min-h-[32px] font-medium">{plan.desc}</p>
 
-                  <div className="pt-2">
-                    <span className="text-4xl font-black text-[#24050D] dark:text-[#FFFDF9]">{plan.price}</span>
-                    <span className="text-xs font-semibold text-[#614D3C] dark:text-[#B59D85] ml-1.5">/ {plan.period}</span>
+                  <div className="pt-2 flex items-baseline">
+                    <span className="text-2xl sm:text-3xl font-black text-[#801E35] dark:text-[#E09CA9] mr-1.5 font-sans">
+                      ₹
+                    </span>
+                    <span className="text-3xl sm:text-4xl font-black text-[#24050D] dark:text-[#FFFDF9]">
+                      {plan.price}
+                    </span>
+                    <span className="text-xs font-semibold text-[#614D3C] dark:text-[#B59D85] ml-2">
+                      / {plan.period}
+                    </span>
                   </div>
 
                   {/* Feature Checklist */}
@@ -547,25 +557,28 @@ const Home = () => {
             </div>
 
             {/* Right Metric Cards */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="p-6 rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-2">
-                <div className="text-3xl sm:text-4xl font-black text-[#801E35] dark:text-[#E09CA9]">₹15+ Cr</div>
-                <p className="text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Expenses Tracked Safely</p>
+            <div className="grid grid-cols-2 gap-3 sm:gap-6">
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-1.5 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#801E35] dark:text-[#E09CA9] flex items-baseline">
+                  <span className="text-lg sm:text-2xl mr-1 font-bold font-sans">₹</span>
+                  <span>15+ Cr</span>
+                </div>
+                <p className="text-[11px] sm:text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Expenses Tracked Safely</p>
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-2">
-                <div className="text-3xl sm:text-4xl font-black text-[#C25A70]">50,000+</div>
-                <p className="text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Active Smart Savers</p>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-1.5 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#C25A70]">50,000+</div>
+                <p className="text-[11px] sm:text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Active Smart Savers</p>
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-2">
-                <div className="text-3xl sm:text-4xl font-black text-[#614D3C] dark:text-[#D4C5B5]">99.9%</div>
-                <p className="text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Cloud Sync & Reliability</p>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-1.5 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#614D3C] dark:text-[#D4C5B5]">99.9%</div>
+                <p className="text-[11px] sm:text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Cloud Sync & Reliability</p>
               </div>
 
-              <div className="p-6 rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-2">
-                <div className="text-3xl sm:text-4xl font-black text-emerald-600">4.9 / 5</div>
-                <p className="text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Verified User Rating</p>
+              <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#FAF7F2] dark:bg-[#250810] border-2 border-[#EAE0D3] dark:border-[#3F0E1B] space-y-1.5 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-emerald-600">4.9 / 5</div>
+                <p className="text-[11px] sm:text-xs font-bold text-[#4A3528] dark:text-[#D4C5B5]">Verified User Rating</p>
               </div>
             </div>
           </div>

@@ -24,7 +24,7 @@ const Login = () => {
       await login(email, password);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || 'Login failed. Please verify credentials.');
+      setError(err.response?.data?.message || err.message || 'Login failed. Please verify credentials.');
     } finally {
       setLoading(false);
     }

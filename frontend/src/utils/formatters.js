@@ -33,9 +33,11 @@ export const formatCurrency = (amount, currency = 'INR') => {
     }).format(Math.abs(num));
 
     const sign = num < 0 ? '-' : '';
-    return `${sign}${symbol}${formattedNum}`;
+    const safeSymbol = symbol === '₹' ? '₹ ' : symbol;
+    return `${sign}${safeSymbol}${formattedNum}`;
   } catch (err) {
-    return `${symbol}${num.toFixed(2)}`;
+    const safeSymbol = symbol === '₹' ? '₹ ' : symbol;
+    return `${safeSymbol}${num.toFixed(2)}`;
   }
 };
 
