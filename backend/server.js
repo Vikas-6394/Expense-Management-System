@@ -143,8 +143,8 @@ const PORT = process.env.PORT || 5000;
 
 let server;
 
-// Only start the server if not in test mode or serverless environment
-if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+// Only start the server if run directly (e.g. `node server.js`), not when imported in Vercel Serverless or tests
+if (require.main === module) {
   connectDB().then(async () => {
     // Seed initial demo fixtures
     await seedDemoData();
