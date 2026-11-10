@@ -44,42 +44,54 @@ exports.register = async (req, res, next) => {
       currency: currency || 'INR',
     });
 
-    // Seed default categories for this user
-    await seedDefaultCategories(user._id);
+    // Seed default categories for this user (graceful fallback)
+    try {
+      await seedDefaultCategories(user._id);
+    } catch (catErr) {
+      console.warn('[Register] Category seeding warning:', catErr.message);
+    }
 
-    // Create default accounts
-    await Account.create([
-      {
-        user: user._id,
-        name: 'Bank Account',
-        type: 'Bank Account',
-        openingBalance: 0,
-        currentBalance: 0,
-        color: '#3b82f6',
-        icon: 'Building2',
-        isDefault: true,
-      },
-      {
-        user: user._id,
-        name: 'Cash Wallet',
-        type: 'Cash',
-        openingBalance: 0,
-        currentBalance: 0,
-        color: '#10b981',
-        icon: 'Wallet',
-      },
-    ]);
+    // Create default accounts (graceful fallback)
+    try {
+      await Account.create([
+        {
+          user: user._id,
+          name: 'Bank Account',
+          type: 'Bank Account',
+          openingBalance: 0,
+          currentBalance: 0,
+          color: '#3b82f6',
+          icon: 'Building2',
+          isDefault: true,
+        },
+        {
+          user: user._id,
+          name: 'Cash Wallet',
+          type: 'Cash',
+          openingBalance: 0,
+          currentBalance: 0,
+          color: '#10b981',
+          icon: 'Wallet',
+        },
+      ]);
+    } catch (accErr) {
+      console.warn('[Register] Account creation warning:', accErr.message);
+    }
 
     const token = generateToken(user._id);
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: 'User registered successfully',
       token,
       user,
     });
   } catch (error) {
-    next(error);
+    console.error('[Register Controller Error]:', error);
+    return res.status(error.statusCode || 400).json({
+      success: false,
+      message: error.message || 'Registration failed on server. Please try again.',
+    });
   }
 };
 
