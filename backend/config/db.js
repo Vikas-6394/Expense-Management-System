@@ -10,7 +10,7 @@ const connectDB = async () => {
     const uri = process.env.MONGODB_URI || ATLAS_FALLBACK_URI;
 
     const conn = await mongoose.connect(uri, {
-      autoIndex: true,
+      autoIndex: false,
       serverSelectionTimeoutMS: 8000,
     });
 

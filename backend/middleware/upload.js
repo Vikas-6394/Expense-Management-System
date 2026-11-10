@@ -1,10 +1,18 @@
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 
-const uploadsDir = path.join(__dirname, '..', 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+// Detect serverless environment (Vercel / AWS Lambda) where filesystem is read-only except /tmp
+const isServerless = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const uploadsDir = isServerless ? os.tmpdir() : path.join(__dirname, '..', 'uploads');
+
+try {
+  if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  }
+} catch (err) {
+  console.warn('[Upload Warning] Could not ensure uploads directory:', err.message);
 }
 
 const storage = multer.diskStorage({
