@@ -33,12 +33,15 @@ app.set('trust proxy', 1);
 
 // Ensure database connection before processing any API requests
 app.use(async (req, res, next) => {
+  if (req.path === '/api/health' || req.path === '/health') {
+    return next();
+  }
   try {
     await connectDB();
     next();
   } catch (err) {
     console.error('[DB Middleware Error]:', err.message);
-    return res.status(500).json({ success: false, message: 'Database connection error. Please try again.' });
+    return res.status(500).json({ success: false, message: 'Database connection error: ' + err.message });
   }
 });
 

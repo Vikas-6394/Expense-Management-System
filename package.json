@@ -2,10 +2,6 @@
   "name": "expense-management-system",
   "version": "1.0.0",
   "description": "Production-ready MERN Expense Management System",
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
   "scripts": {
     "dev": "concurrently -n \"backend,frontend\" -c \"magenta,cyan\" \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "npm run dev --prefix backend",
