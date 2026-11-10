@@ -37,7 +37,8 @@ const Register = () => {
       await register({ name, email, password, currency: 'INR' });
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.message || err.message || 'Registration failed. Please try again.');
+      const serverMsg = err.response?.data?.message || err.response?.data?.error || (typeof err.response?.data === 'string' && err.response.data.length < 200 ? err.response.data : null);
+      setError(serverMsg || err.message || 'Registration failed. Please try again.');
     } finally {
       setLoading(false);
     }
